@@ -7,7 +7,7 @@ public class EmployeeService {
    //新增員工
    public void addEmployee(Employee emp) {
       if (emp != null && emp.getName() != null && !emp.getName().trim().isEmpty()) {
-         employeeDAO.addEmployee(emp);
+         employeeDAO.addEmployee(emp);//呼叫DAO.add方法
          System.out.println("新增成功" + emp);
       } else {
          throw new IllegalArgumentException("員工資訊不完整，無法新增");
@@ -30,7 +30,7 @@ public class EmployeeService {
    }
 
       //查詢所有
-      public List<Employee> getEmployees() {
+      public List<Employee> getAllEmployees() {
          List<Employee> employees = employeeDAO.getAllEmployees();
          for (Employee emp : employees) {
             System.out.println(emp);
@@ -39,7 +39,7 @@ public class EmployeeService {
       }
       //根據ID刪員工
       public void deleteEmployee(int employeeId){
-         if (employeeId > 0) {
+         if (employeeDAO.getEmployee(employeeId) != null) {
             employeeDAO.deleteEmployee(employeeId);
             System.out.println("刪除成功 編號:" + employeeId + "已滾蛋");
          } else {
