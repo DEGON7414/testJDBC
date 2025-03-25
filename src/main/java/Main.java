@@ -1,40 +1,39 @@
+import com.mysql.cj.result.LocalDateTimeValueFactory;
+
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-/**
- * ClassName: main
- * Description:
- *
- * @Author 許記源
- * @Create 2025/3/21 下午 01:35
- * @Version 1.0
- */
 public class Main {
     public static void main(String[] args) throws SQLException {
         EmployeeService employeeService = new EmployeeService();
 //        //新增
-//        Employee emp1 = new Employee("KEVIN", 1, new Timestamp(System.currentTimeMillis()));
-//        employeeService.addEmployee(emp1);
-//        //根據ID查詢
+//          Employee emp1 = new Employee("KEVIN", 1, new Timestamp(System.currentTimeMillis()));
+          Employee emp1 = new Employee();
+          emp1.setName("黑鬍子");
+          emp1.setSex(1);
+          emp1.setTimes();
+//          employeeService.addEmployee(emp1);
+        //根據ID查詢
 //        employeeService.getEmployee(1);
 //
-//        //查全部
-//        employeeService.getEmployees();
+        //查全部
+//        employeeService.getAllEmployees();
         //更新
-        try {
-            Employee employee = new Employee();
-            employee.setEmployeeId(1);
-            employee.setName("牢大");
-            employee.setSex(1);
-            employee.setTimes(new Timestamp(System.currentTimeMillis()));
+//        try {
+//            Employee employee = new Employee();
+//            employee.setEmployeeId(1);
+//            employee.setName("老牛");
+//            employee.setSex(0);
+//            employee.setTimes();
+////            employee.setTimes(LocalDateTime.of(2025, 3, 21, 11, 22, 12));
+//            employeeService.updateEmployee(employee);
 
-            employeeService.updateEmployee(employee);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("更新失敗");
-      }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("更新失敗");
+//      }
         //刪除
-//        employeeService.deleteEmployee(7);
+//        employeeService.deleteEmployee(14);
     }
 }

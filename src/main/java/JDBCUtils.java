@@ -11,7 +11,7 @@ import java.sql.*;
  * @Version 1.0
  */
 public class JDBCUtils {
-    private static final String URL = "jdbc:mysql://61.66.110.147:3306/mysql999";
+    private static final String URL = "jdbc:mysql://61.66.110.147:3306/mysql999?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
     private static final String PASSWORD = "mysql9@90";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
