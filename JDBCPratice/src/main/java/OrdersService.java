@@ -20,13 +20,14 @@ public class OrdersService {
 
     //查詢
     public Orders getOrderById(int id) {
-        Orders orders = ordersDao.getOrderById(id);
-        if (orders != null) {
+        Orders orders = ordersDao.getOrderById(id); //1.先執行然後將結果存到orders 物件
+        if (orders != null) //2.判斷是不是空的
+        {
             System.out.println(orders);
         } else {
             System.out.println("找不到此ID");
         }
-        return orders;
+        return orders; //回給main
     }
 
     //查全部
@@ -35,7 +36,7 @@ public class OrdersService {
 //        for (Orders order : Orders) {
 //            System.out.println(order);
 //        }
-        return orders;
+        return orders; // 回給main
     }
 
     //新增
@@ -51,7 +52,8 @@ public class OrdersService {
     public boolean updateOrder(Orders order) {
         if (order != null) {
             boolean b = ordersDao.updateOrder(order);
-            if (b){
+            if (b)//()沒設東西 預設 就是代表 true
+            {
 //            System.out.println("service 更新成功");
                 return true;
             }

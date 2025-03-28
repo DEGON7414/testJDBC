@@ -35,15 +35,15 @@ public class Main {
 //        orders.setCreatedEmployeeId(2);
 //        ordersService.insertOrder(orders);
         //刪除
-//        boolean b = ordersService.deleteOrder(385157);
-//        System.out.println(b);
+        boolean b = ordersService.deleteOrder(385359);
+        System.out.println(b);
 
         //更新
-        Orders orders = new Orders();
-        orders.setId(385154);
-        orders.setStatus("已出貨");
-        boolean b = ordersService.updateOrder(orders);
-        System.out.println(b);
+//        Orders orders = new Orders();
+//        orders.setId(385154);
+//        orders.setStatus("已出貨");
+//        boolean b = ordersService.updateOrder(orders);
+//        System.out.println(b);
 
     }
 }

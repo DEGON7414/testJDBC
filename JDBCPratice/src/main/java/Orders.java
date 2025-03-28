@@ -9,11 +9,12 @@ import java.util.Date;
  * @Version 1.0
  */
 //類型不要用 包裝類的 能用基本用基本
+// double float 參數記得用 D、F結尾
 public class Orders {
-    private Integer id;
+    private int id;
     private String orderNumber;
-    private Integer customerId;
-    private Integer currencyId = 3;
+    private int customerId;
+    private int currencyId = 3;
     private Double currentExchangeRate;
     private Date orderDate;
     private Double orderFee;
@@ -35,32 +36,32 @@ public class Orders {
     private String sellerNote;
     private Boolean isShipped = false;
     private Date lastModifyDate;
-    private Integer lastModifyEmployeeId;
-    private Integer createdEmployeeId;
+    private int lastModifyEmployeeId;
+    private int createdEmployeeId;
     private Date createdDate;
     private Boolean isShopeeOrder;
     private Boolean isReturnOrder = false;
     private Double refundAmount = 0.0d;
-    private Integer shopId = 2;
+    private int shopId = 2;
 
     public Orders() {
     }
 
 
 
-    public Integer getCurrencyId() {
+    public int getCurrencyId() {
         return currencyId;
     }
 
-    public void setCurrencyId(Integer currencyId) {
+    public void setCurrencyId(int currencyId) {
         this.currencyId = currencyId;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -72,11 +73,11 @@ public class Orders {
         this.orderNumber = orderNumber;
     }
 
-    public Integer getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 
@@ -248,19 +249,19 @@ public class Orders {
         this.lastModifyDate = lastModifyDate;
     }
 
-    public Integer getLastModifyEmployeeId() {
+    public int getLastModifyEmployeeId() {
         return lastModifyEmployeeId;
     }
 
-    public void setLastModifyEmployeeId(Integer lastModifyEmployeeId) {
+    public void setLastModifyEmployeeId(int lastModifyEmployeeId) {
         this.lastModifyEmployeeId = lastModifyEmployeeId;
     }
 
-    public Integer getCreatedEmployeeId() {
+    public int getCreatedEmployeeId() {
         return createdEmployeeId;
     }
 
-    public void setCreatedEmployeeId(Integer createdEmployeeId) {
+    public void setCreatedEmployeeId(int createdEmployeeId) {
         this.createdEmployeeId = createdEmployeeId;
     }
 
@@ -296,11 +297,11 @@ public class Orders {
         this.refundAmount = refundAmount;
     }
 
-    public Integer getShopId() {
+    public int getShopId() {
         return shopId;
     }
 
-    public void setShopId(Integer shopId) {
+    public void setShopId(int shopId) {
         this.shopId = shopId;
     }
     @Override

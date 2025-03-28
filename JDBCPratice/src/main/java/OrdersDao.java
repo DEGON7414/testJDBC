@@ -27,24 +27,30 @@ public class OrdersDao {
     //透過 ID查訂單編號、顧客ID、訂單日期、買家船運關稅
     public Orders getOrderById(int id) {
 //    String getSql = "select * from orders where id = ?";
-                    Orders order = new Orders();
-                    order = null;
-        try (Connection conn = JDBCUtils.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(getSql);) {
-            stmt.setInt(1, id);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
+        //前面直接new 完設 NULL 導致 他撈資料失敗
+        //物件變數設置null 他會改指向null(沒有任何物件) 而非本來的物件
+        Orders order = null;
+        try (Connection conn = JDBCUtils.getConnection(); //1.建立連線
+             PreparedStatement stmt = conn.prepareStatement(getSql);//2.準備指令(放入SQL)
+             ) {
+            stmt.setInt(1, id);//3.使用id 回答上面SQL的問號
+            try (ResultSet rs = stmt.executeQuery()//4.執行查詢並把結果 用ResultSet rs接下
+            ) {
+                if (rs.next() //指 結果
+                ) {
+                    order = new Orders();
+                    //get資料中 欄位是order_number的資料 然後 set到order物件的OrderNumber屬性。
                     order.setOrderNumber(rs.getString("order_number"));
                     order.setCustomerId(rs.getInt("customer_id"));
                     order.setOrderDate(rs.getDate("order_date"));
                     order.setBuyerShippingFee(rs.getDouble("buyer_shipping_fee"));
-                    return order;
+                    return order; //有回傳值就結束 傳回給上面的order 傳回給上面的order
                 }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return order;
+        return order;//傳回給上面的order 傳回給service
     }
 
     //增加訂單 (訂單編號、匯率、稅、商品總價、最後操作員工編號、創建員工編號、是否為蝦皮訂單)
@@ -105,7 +111,7 @@ public class OrdersDao {
             int ok = preparedStatement.executeUpdate();
             if (ok > 0) {
                 System.out.println("DAO 更新成功" + "更新訂單為" + order.getId() + "狀態為:" + order.getStatus());
-                return true;
+                return true;//有回傳值就結束方法
             } else {
                 System.out.println("DAO更新失敗");
             }
