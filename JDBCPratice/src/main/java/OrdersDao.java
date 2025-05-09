@@ -29,6 +29,7 @@ public class OrdersDao {
 //    String getSql = "select * from orders where id = ?";
         //前面直接new 完設 NULL 導致 他撈資料失敗
         //物件變數設置null 他會改指向null(沒有任何物件) 而非本來的物件
+
         Orders order = null;
         try (Connection conn = JDBCUtils.getConnection(); //1.建立連線
              PreparedStatement stmt = conn.prepareStatement(getSql);//2.準備指令(放入SQL)
